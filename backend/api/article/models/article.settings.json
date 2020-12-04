@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "articles",
   "info": {
-    "name": "article"
+    "name": "article",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "title": {
@@ -55,8 +57,12 @@
       "required": true
     },
     "author": {
+      "model": "writer",
+      "via": "articles"
+    },
+    "hastags": {
       "via": "articles",
-      "model": "writer"
+      "collection": "hastags"
     }
   }
 }
